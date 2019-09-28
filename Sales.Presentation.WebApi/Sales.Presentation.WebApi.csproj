@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sales.Domain.Entities\Sales.Domain.Entities.csproj" />
+    <ProjectReference Include="..\Sales.Infrastructure.DataContext\Sales.Infrastructure.DataContext.csproj" />
+    <ProjectReference Include="..\Sales.Services.Implementation\Sales.Services.Implementation.csproj" />
+    <ProjectReference Include="..\Sales.Services.Interfaces\Sales.Services.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>

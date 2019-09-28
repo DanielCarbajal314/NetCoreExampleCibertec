@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sales.Domain.Entities\Sales.Domain.Entities.csproj" />
+    <ProjectReference Include="..\Sales.Infrastructure.DataContext\Sales.Infrastructure.DataContext.csproj" />
+    <ProjectReference Include="..\Sales.Infrastructure.DataPersistency.EFImplementation\Sales.Infrastructure.DataPersistency.EFImplementation.csproj" />
+    <ProjectReference Include="..\Sales.Infrastructure.DataPersistency.Interface\Sales.Infrastructure.DataPersistency.Interface.csproj" />
+    <ProjectReference Include="..\Sales.Services.DataMapping\Sales.Services.DataMapping.csproj" />
+    <ProjectReference Include="..\Sales.Services.Interfaces\Sales.Services.Interfaces.csproj" />
+  </ItemGroup>
+
+</Project>
