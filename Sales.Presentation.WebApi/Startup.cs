@@ -35,6 +35,18 @@ namespace Sales.Presentation.WebApi
             {
                 options.UseSqlServer(Configuration.GetConnectionString("SalesDb"));
             });
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials();
+                    });
+            });
             services.AddTransient<ISalesUnitOfWork, SalesUnitOfWork>();
             services.AddTransient<IProductHandler, ProductHandler>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -49,6 +61,8 @@ namespace Sales.Presentation.WebApi
             }
 
             app.UseMvc();
+            app.UseCors("AllowAll");
+
         }
     }
 }

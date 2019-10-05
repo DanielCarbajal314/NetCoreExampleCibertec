@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sales.Services.Interfaces;
@@ -12,6 +13,7 @@ using Sales.Services.Interfaces.Responses;
 namespace Sales.Presentation.WebApi.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("AllowAll")]
     [ApiController]
     public class ProductController : ControllerBase
     {
