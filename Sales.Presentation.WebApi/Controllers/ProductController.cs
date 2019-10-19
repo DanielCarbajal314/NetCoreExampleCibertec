@@ -32,6 +32,13 @@ namespace Sales.Presentation.WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("GetByCategory/{id}")]
+        public IEnumerable<RegisteredProduct> GetByCategory(int id)
+        {
+            return this._productHandler.GetByCategoryId(id);
+        }
+
+        [HttpGet]
         [Route("All")]
         public IEnumerable<RegisteredProduct> ListAll()
         {

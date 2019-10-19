@@ -30,6 +30,14 @@ namespace Sales.Services.Implementation
             this._unitOfWork.Commit();
         }
 
+        public IEnumerable<RegisteredProduct> GetByCategoryId(int id)
+        {
+            return this._unitOfWork.ProductRepository
+                                   .Search(x => x.CategoryId.Equals(id))
+                                   .ToList()
+                                   .Select(x => x.ToDTO());
+        }
+
         public IEnumerable<RegisteredProduct> ListAll()
         {
             return this._unitOfWork.ProductRepository

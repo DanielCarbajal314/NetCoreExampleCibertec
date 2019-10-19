@@ -15,6 +15,7 @@ using Sales.Infrastructure.DataPersistency.EFImplementation;
 using Sales.Infrastructure.DataPersistency.Interface;
 using Sales.Services.Implementation;
 using Sales.Services.Interfaces;
+using Sales.Services.Interfaces.Handlers;
 
 namespace Sales.Presentation.WebApi
 {
@@ -49,6 +50,8 @@ namespace Sales.Presentation.WebApi
             });
             services.AddTransient<ISalesUnitOfWork, SalesUnitOfWork>();
             services.AddTransient<IProductHandler, ProductHandler>();
+            services.AddTransient<ISalesHadler, SaleHandler>();
+            services.AddTransient<ICategoryHandler, CategoryHandler>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

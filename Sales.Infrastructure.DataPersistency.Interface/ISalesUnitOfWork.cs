@@ -9,5 +9,7 @@ namespace Sales.Infrastructure.DataPersistency.Interface
     public interface ISalesUnitOfWork : IUnitOfWork
     {
         IRepository<Product> ProductRepository { get; }
+        IRepository<Sale> SaleRepository { get; }
+        IRepository<Category> CategoryRepository { get; }
     }
 }

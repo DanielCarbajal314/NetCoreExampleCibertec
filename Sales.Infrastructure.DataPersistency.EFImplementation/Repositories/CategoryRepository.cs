@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Sales.Infrastructure.DataPersistency.EFImplementation.Repositories
 {
-    public class ProductRepository : Repository<Product>
+    class CategoryRepository : Repository<Category>
     {
-        public ProductRepository(DbContext db) : base(db)
+        public CategoryRepository(DbContext db) : base(db)
         {
         }
     }
