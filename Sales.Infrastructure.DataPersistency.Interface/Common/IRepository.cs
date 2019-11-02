@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading.Tasks;
 
 namespace Sales.Infrastructure.DataPersistency.Interface.Common
 {
@@ -16,6 +17,7 @@ namespace Sales.Infrastructure.DataPersistency.Interface.Common
         void Update(T entity);
         void Create(T entity);
         IEnumerable<T> ListAll();
+        Task<IEnumerable<T>> ListAllAsync();
         IEnumerable<T> GetPage(DataPage page);
     }
 }

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Sales.Services.Implementation
 {
@@ -19,12 +20,12 @@ namespace Sales.Services.Implementation
             this._unitOfWork = unitOfWork;
         }
 
-        public IEnumerable<RegisteredSale> ListAll()
+        public async Task<IEnumerable<RegisteredSale>> ListAll()
         {
-            return this._unitOfWork
+            var allSalesEntities = await this._unitOfWork
                         .SaleRepository
-                        .ListAll()
-                        .Select(x => x.ToDTO());
+                        .ListAllAsync();
+            return allSalesEntities.Select(x => x.ToDTO());
         }
 
         public void Register(NewSale saleToRegister)

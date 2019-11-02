@@ -30,9 +30,9 @@ namespace Sales.Presentation.WebApi.Controllers
 
         [HttpGet]
         [Route("All")]
-        public IEnumerable<RegisteredSale> GetAllSales()
+        public async Task<IEnumerable<RegisteredSale>> GetAllSales()
         {
-            return this._saleHandler.ListAll();
+            return await this._saleHandler.ListAll();
         }
 
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Sales.Infrastructure.DataPersistency.EFImplementation.Common
 {
@@ -48,6 +49,13 @@ namespace Sales.Infrastructure.DataPersistency.EFImplementation.Common
             return this._entities
                         .Where(x => !x.Deleted)
                         .ToList();
+        }
+
+        public async Task<IEnumerable<T>> ListAllAsync()
+        {
+            return await this._entities
+                             .Where(x => !x.Deleted)
+                             .ToListAsync();
         }
 
         public IQueryable<T> Search(Expression<Func<T, bool>> searchExpression)
