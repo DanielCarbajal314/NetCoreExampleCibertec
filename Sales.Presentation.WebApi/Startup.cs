@@ -62,9 +62,9 @@ namespace Sales.Presentation.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseMvc();
             app.UseCors("AllowAll");
+            app.UseMvc();
+
 
         }
     }

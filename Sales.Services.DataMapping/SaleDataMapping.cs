@@ -1,5 +1,6 @@
 ﻿using Sales.Domain.Entities;
 using Sales.Services.Interfaces.Requests;
+using Sales.Services.Interfaces.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,5 +30,17 @@ namespace Sales.Services.DataMapping
                 Quantity = saleDetail.Quantity,
             };
         }
+
+        public static RegisteredSale ToDTO(this Sale sale)
+        {
+            return new RegisteredSale()
+            {
+                Id = sale.Id,
+                Client = sale.Client,
+                Date = sale.Date,
+                Total = sale.TotalCost
+            };
+        }
+
     }
 }

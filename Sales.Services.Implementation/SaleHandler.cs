@@ -2,8 +2,10 @@
 using Sales.Services.DataMapping;
 using Sales.Services.Interfaces.Handlers;
 using Sales.Services.Interfaces.Requests;
+using Sales.Services.Interfaces.Responses;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Sales.Services.Implementation
@@ -17,6 +19,13 @@ namespace Sales.Services.Implementation
             this._unitOfWork = unitOfWork;
         }
 
+        public IEnumerable<RegisteredSale> ListAll()
+        {
+            return this._unitOfWork
+                        .SaleRepository
+                        .ListAll()
+                        .Select(x => x.ToDTO());
+        }
 
         public void Register(NewSale saleToRegister)
         {

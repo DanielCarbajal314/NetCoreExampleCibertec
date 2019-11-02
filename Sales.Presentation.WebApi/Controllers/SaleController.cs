@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sales.Services.Interfaces.Handlers;
 using Sales.Services.Interfaces.Requests;
+using Sales.Services.Interfaces.Responses;
 
 namespace Sales.Presentation.WebApi.Controllers
 {
@@ -26,5 +27,13 @@ namespace Sales.Presentation.WebApi.Controllers
         {
             this._saleHandler.Register(sale);
         }
+
+        [HttpGet]
+        [Route("All")]
+        public IEnumerable<RegisteredSale> GetAllSales()
+        {
+            return this._saleHandler.ListAll();
+        }
+
     }
 }
