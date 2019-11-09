@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Sales.Services.Interfaces.Handlers;
@@ -30,8 +31,10 @@ namespace Sales.Presentation.WebApi.Controllers
 
         [HttpGet]
         [Route("All")]
+        [Authorize]
         public async Task<IEnumerable<RegisteredSale>> GetAllSales()
         {
+            var user = this.User;
             return await this._saleHandler.ListAll();
         }
 
